@@ -1,7 +1,17 @@
 import { motion } from "framer-motion";
 import CountingNumbers from "@/components/shared/counting-numbers";
 
-export default function WebVitals() {
+export default function WebVitals({
+  value,
+}: {
+  value: number;
+}) {
+  function fillColour(percent: number): string {
+    const r = percent<50 ? 255 : Math.floor(255-(percent*2-100)*255/100);
+    const g = percent>50 ? 255 : Math.floor((percent*2)*255/100);
+    return 'rgb('+r+','+g+',0)';
+}  
+
   return (
     <div className="relative h-full w-full">
       <motion.svg
@@ -12,7 +22,7 @@ export default function WebVitals() {
       >
         <motion.circle
           initial={{ pathLength: 0 }}
-          animate={{ pathLength: 1 }}
+          animate={{ pathLength: value / 100 }}
           whileInView={{ pathLength: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.5, duration: 2, ease: "easeOut" }}
@@ -24,11 +34,12 @@ export default function WebVitals() {
           cy="50"
           r="45"
           fill="#DCFCE7"
-          stroke="#22C55E"
+          // stroke="rgb(100,100,255)"
+          stroke={fillColour(value)}
         />
       </motion.svg>
       <CountingNumbers
-        value={100}
+        value={value}
         duration={2500}
         className="absolute inset-0 mx-auto flex items-center justify-center font-display text-5xl text-green-500"
       />
