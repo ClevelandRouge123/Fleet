@@ -37,8 +37,7 @@ export default function Home() {
           variants={FADE_DOWN_ANIMATION_VARIANTS}
         >
           <Balancer>
-            An opinionated collection of components, hooks, and utilities for
-            your Next.js project.
+            An Adminstrative Panel to Control, Manage and View your Electric fleet
           </Balancer>
         </motion.p>
         <motion.div
@@ -93,7 +92,7 @@ export default function Home() {
       <div className="my-10 grid w-full max-w-screen-xl animate-[slide-down-fade_0.5s_ease-in-out] grid-cols-1 gap-5 px-5 md:grid-cols-3 xl:px-0">
       {/* {features.map(({ title, description, demo, large } ) => ( */}
         {features.map(({ title, description, demo, large }) => (
-          <Card
+          <Card 
             key={title}
             title={title}
             description={description}
