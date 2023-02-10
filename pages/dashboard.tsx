@@ -1,11 +1,23 @@
 import React, { Component } from "react";
-import Layout from "@/components/layout";
+import LayoutDashboard from "@/components/layout/layoutDashboard";
+import ActiveChargingPreview from "@/components/previewComponents/activeChargingPreview";
+import billingPreview from "@/components/previewComponents/billingPreview";
+import userManagementPreview from "@/components/previewComponents/userManagementPreview";
+import vehicleManagementPreview from "@/components/previewComponents/vehicleManagementPreview";
+
 class dashboard extends Component {
   render() {
     return (
-      <Layout>
-        <div>Dashboard</div>
-      </Layout>
+      <>
+        <LayoutDashboard pageName={"Dashboard"} />
+        {/* <ActiveChargingPreview />
+        <billingPreview />
+        <userManagementPreview />
+        <vehicleManagementPreview /> */}
+        {/* Costing Breakdown */}
+        {/* Vehicle Management */}
+        {/* User Management Preview */}
+      </>
     );
   }
 }
